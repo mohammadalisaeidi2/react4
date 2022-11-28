@@ -4,9 +4,10 @@ import './App.css'
 import Home from './pages/Home'
 import Contact from './pages/Contact';
 import About from './pages/About';
+import Article from './pages/Article';
 
 
-import {BrowserRouter, Route, Switch, NavLink} from 'react-router-dom'
+import {BrowserRouter, Route, Switch, NavLink, Redirect} from 'react-router-dom'
 function App() {
   return (
     <div className="App">
@@ -19,6 +20,7 @@ function App() {
         </nav>
         
         <Switch>
+
           <Route  exact path='/'>
               <Home />
           </Route>
@@ -30,6 +32,15 @@ function App() {
           <Route path='/contact'>
             <Contact />
           </Route>
+          
+          <Route path="/articles/:id">
+            <Article />
+          </Route>
+          
+          <Route path="*">
+            <Redirect to='/' />
+          </Route>
+
         </Switch>
       </BrowserRouter>
     </div>
